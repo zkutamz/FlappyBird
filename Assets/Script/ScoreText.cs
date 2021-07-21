@@ -12,4 +12,9 @@ public class ScoreText : MonoBehaviour
 		score = GetComponent<Text>();
 		score.text = PlayerPrefs.GetInt("Score").ToString();
 	}
+	void Update()
+	{
+		score = GetComponent<Text>();
+		score.text = PlayerPrefs.GetInt("Score").ToString();
+	}
 }

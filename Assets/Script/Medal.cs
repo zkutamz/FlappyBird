@@ -6,6 +6,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class Medal : MonoBehaviour
 {
+
+    public Sprite Null;
     public Sprite bronze;
     public Sprite sliver;
     public Sprite gold;
@@ -25,6 +27,22 @@ public class Medal : MonoBehaviour
         else if (score >= best * 0.2)
             medal.sprite = bronze;
         else
-            medal.sprite = null;
+            medal.sprite = Null;
+    }
+    void Update()
+	{
+        int score = PlayerPrefs.GetInt("Score");
+        int best = PlayerPrefs.GetInt("HighScore");
+        Image medal = GetComponent<Image>();
+        if (score > best + best * 0.2)
+            medal.sprite = plastic;
+        else if (score >= best)
+            medal.sprite = gold;
+        else if (score >= best * 0.5)
+            medal.sprite = sliver;
+        else if (score >= best * 0.2)
+            medal.sprite = bronze;
+        else
+            medal.sprite = Null;
     }
 }
